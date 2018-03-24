@@ -35,6 +35,10 @@ TARGET_2ND_CPU_VARIANT := kryo
 TARGET_USES_UEFI := true
 TARGET_USES_64_BIT_BINDER := true
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8998
@@ -42,7 +46,8 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc1b0000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc1b0000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3
+BOARD_KERNEL_CMDLINE +=androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -152,6 +157,7 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 # Camera
 TARGET_USES_QTI_CAMERA2CLIENT := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
+USE_CAMERA_STUB := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
@@ -218,8 +224,8 @@ TARGET_PROVIDES_LIBLIGHT := true
 TARGET_PROVIDES_KEYMASTER := true
 
 # NFC
+BOARD_NFC_CHIPSET := pn548
 BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
-BOARD_NFC_CHIPSET := pn553
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -256,9 +262,6 @@ PROTOBUF_SUPPORTED := true
 include device/qcom/sepolicy/sepolicy.mk
 
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
-
-# Sensors
-USE_SENSOR_MULTI_HAL := true
 
 # Time Service
 BOARD_USES_QC_TIME_SERVICES := true

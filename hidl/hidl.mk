@@ -17,10 +17,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
 
-# Consumerir
-PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-impl
-
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -36,10 +32,6 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-service.widevine
-
-# Fingerprint sensor
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
